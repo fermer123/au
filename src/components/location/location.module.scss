@@ -1,0 +1,48 @@
+.location {
+  position: relative;
+  margin-left: 100px;
+  max-width: 559px;
+
+  &::after {
+    display: block;
+    content: '';
+    margin-top: 43px;
+    margin-bottom: 32px;
+    left: 0;
+    width: 990px;
+    height: 0px;
+    border: 1px solid #e5e4e4;
+  }
+}
+.location_city {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 39px;
+  flex-wrap: wrap;
+}
+.city {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 19px;
+  color: #000000;
+}
+
+.location_university {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.university {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 19px;
+  color: #000000;
+}
+select {
+  max-width: 336px;
+}

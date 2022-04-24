@@ -1,0 +1,40 @@
+.header {
+  margin-top: 90px;
+  margin-left: 100px;
+  margin-bottom: 96px;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 718px;
+}
+.header_person {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 34px;
+  color: #666666;
+}
+.header_change_status {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  color: #0c77bb;
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    border: 1px dashed #0c77bb;
+    width: 86px;
+    height: 0px;
+    bottom: 0;
+    left: 5;
+  }
+}
