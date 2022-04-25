@@ -1,10 +1,19 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import style from './location.module.scss';
+const json = require('../../cities.json');
+
+const filteredJson = json.filter((e) => {
+  return e.population > 50000;
+});
+
+const sortJson = filteredJson.sort();
 
 const Location = () => {
   const [unversity, setUnversity] = useState([]);
   const [value, setValue] = useState('');
+  const [city, setCity] = useState('');
+
   useEffect(() => {
     const fetchUniversity = async () => {
       const response = await axios(
@@ -19,16 +28,21 @@ const Location = () => {
     return <option key={index}>{e.name}</option>;
   });
 
+  const JSON = sortJson.map((e, index) => {
+    return <option key={index}>{e.city}</option>;
+  });
+
   return (
     <div className={style.location}>
       <div className={style.location_city}>
         <div className={style.city}>Ваш город</div>
-        <select></select>
+        <select value={city} onChange={(event) => setCity(event.target.value)}>
+          {JSON}
+        </select>
       </div>
       <div className={style.location_university}>
         <div className={style.university}>Ваш университет</div>
         <select
-          className={style.university_select}
           value={value}
           onChange={(event) => setValue(event.target.value)}
         >
