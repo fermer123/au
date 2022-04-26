@@ -4,6 +4,8 @@ import style from './password.module.scss';
 const Password = () => {
   const [pass, setPass] = useState('');
   const [repeatPass, setRepeatPass] = useState('');
+  const [passError, setPassEmailError] = useState(false);
+  const [repeatPassError, setRepeatPassError] = useState(false);
   return (
     <div className={style.password}>
       <div className={style.password_wrapper}>
@@ -13,6 +15,11 @@ const Password = () => {
           value={pass}
           onChange={(e) => setPass(e.target.value)}
         />
+        {passError && (
+          <div className={style.password_error}>
+            Используйте не менее 5символов
+          </div>
+        )}
       </div>
       <div className={style.password_wrapper}>
         <div>Пароль еще раз</div>
@@ -21,6 +28,9 @@ const Password = () => {
           value={repeatPass}
           onChange={(e) => setRepeatPass(e.target.value)}
         />
+        {repeatPassError && (
+          <div className={style.password_error}>Пароли не совпадают</div>
+        )}
       </div>
     </div>
   );

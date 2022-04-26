@@ -4,6 +4,8 @@ import style from './email.module.scss';
 const Email = () => {
   const [checked, setChecked] = useState(true);
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState(false);
+
   const checkbox = () => {
     setChecked(!checked);
   };
@@ -13,6 +15,7 @@ const Email = () => {
       <div className={style.email_wrapper}>
         <div className={style.password_field}>Электронная почта</div>
         <input value={email} onChange={(e) => setEmail(e.target.value)} />
+        {emailError && <div className={style.email_error}>неверный E-mail</div>}
       </div>
       <div className={style.password_wrapper}>
         <div className={style.password_agree}>Я согласен</div>
