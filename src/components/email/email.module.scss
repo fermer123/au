@@ -1,0 +1,51 @@
+.wrapper {
+  max-width: 594px;
+  margin-left: 100px;
+}
+
+.email_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 100px;
+  text-align: flex-start;
+  margin-bottom: 16px;
+}
+.password_field {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 19px;
+  color: #000000;
+  margin-right: 36px;
+}
+
+.password_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.password_agree {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 19px;
+  color: #000000;
+}
+.checkbox {
+  align-self: center;
+  margin-left: 115px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #7e7e7e;
+  box-sizing: border-box;
+}
+.password_info {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-left: 10px;
+}
