@@ -9,6 +9,13 @@ const filteredJson = json.filter((e) => {
 
 const sortJson = filteredJson.sort();
 
+const max = Math.max.apply(
+  null,
+  sortJson.map((e) => e.population),
+);
+const maxIndex = sortJson.findIndex((e) => e.population == max);
+const newArr = sortJson.splice(maxIndex, 1).concat(sortJson);
+
 const Location = () => {
   const [unversity, setUnversity] = useState([]);
   const [value, setValue] = useState('');
@@ -28,7 +35,7 @@ const Location = () => {
     return <option key={index}>{e.name}</option>;
   });
 
-  const JSON = sortJson.map((e, index) => {
+  const JSON = newArr.map((e, index) => {
     return <option key={index}>{e.city}</option>;
   });
 
