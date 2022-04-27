@@ -4,32 +4,76 @@ import style from './password.module.scss';
 const Password = () => {
   const [pass, setPass] = useState('');
   const [repeatPass, setRepeatPass] = useState('');
-  const [passError, setPassEmailError] = useState(false);
-  const [repeatPassError, setRepeatPassError] = useState(false);
+  const [passError, setPassError] = useState('Используйте не менее 5 символов');
+  const [passDirty, setPassDirty] = useState(false);
+
+  const [repeatPassError, setRepeatPassError] = useState('Пароли не совпадают');
+  const [repeatPassDirty, setRepeatPassDirty] = useState(false);
+
+  const blurHandler = (e) => {
+    switch (e.target.name) {
+      case 'passwordOne':
+        setPassDirty(true);
+        break;
+
+      case 'passwordTwo':
+        setRepeatPassDirty(true);
+        break;
+    }
+  };
+
+  const passwordHandler = (e) => {
+    setPass(e.target.value);
+    if (e.target.value.length < 5) {
+      setPassError('Используйте не менее 5 символов');
+    } else {
+      setPassError('');
+    }
+  };
+
+  const passwordHandlerRepeat = (e) => {
+    setRepeatPass(e.target.value);
+    if (e.target.value.length < 5) {
+      setRepeatPassError('Используйте не менее 5 символов');
+    }
+    if (e.target.value !== pass) {
+      setRepeatPassError('Пароли не совпадают');
+    } else {
+      setRepeatPassError('');
+    }
+    console.log(pass);
+    console.log(repeatPass);
+  };
+
   return (
     <div className={style.password}>
       <div className={style.password_wrapper}>
         <div>Пароль</div>
         <input
+          onBlur={(e) => blurHandler(e)}
+          name='passwordOne'
           type='password'
           value={pass}
-          onChange={(e) => setPass(e.target.value)}
+          onChange={(e) => passwordHandler(e)}
         />
-        {passError && (
-          <div className={style.password_error}>
-            Используйте не менее 5символов
-          </div>
+        {passError && passDirty && (
+          <div className={style.password_error}>{passError}</div>
         )}
       </div>
       <div className={style.password_wrapper}>
         <div>Пароль еще раз</div>
         <input
+          onBlur={(e) => blurHandler(e)}
+          name='passwordTwo'
           type='password'
           value={repeatPass}
-          onChange={(e) => setRepeatPass(e.target.value)}
+          onChange={(e) => passwordHandlerRepeat(e)}
         />
-        {repeatPassError && (
-          <div className={style.password_error}>Пароли не совпадают</div>
+        {passError && passDirty && (
+          <div className={style.password_error}>{passError}</div>
+        )}
+        {repeatPassError && repeatPassDirty && (
+          <div className={style.password_error}>{repeatPassError}</div>
         )}
       </div>
     </div>
