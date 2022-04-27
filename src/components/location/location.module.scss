@@ -52,7 +52,6 @@ select {
   background-position: right 3% top 50%;
   outline: none;
   max-width: 336px;
-
   font-family: 'Arial';
   font-style: normal;
   font-weight: 400;
@@ -61,10 +60,4 @@ select {
   color: #000000;
   border: 1px solid #999999;
   box-sizing: border-box;
-}
-option {
-  font-weight: normal;
-
-  width: 336px;
-  background-size: 50%;
 }
