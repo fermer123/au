@@ -1,4 +1,5 @@
 import style from './App.module.scss';
+import Button from './components/button/button';
 import Email from './components/email/email';
 import Header from './components/header/header';
 import Location from './components/location/location';
@@ -11,6 +12,7 @@ function App() {
       <Location />
       <Password />
       <Email />
+      <Button />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 .location {
-  position: relative;
   margin-left: 100px;
-  max-width: 559px;
+  max-width: 990px;
 
   &::after {
     display: block;
@@ -9,12 +8,14 @@
     margin-top: 43px;
     margin-bottom: 32px;
     left: 0;
-    width: 990px;
+
+    width: 100%;
     height: 0px;
     border: 1px solid #e5e4e4;
   }
 }
 .location_city {
+  max-width: 559px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 39px;
@@ -30,6 +31,7 @@
 }
 
 .location_university {
+  max-width: 559px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -44,7 +46,13 @@
   color: #000000;
 }
 select {
-  width: 336px;
+  appearance: none;
+  background-image: url('../../img/arrow.jpg');
+  background-repeat: no-repeat;
+  background-position: right 3% top 50%;
+  outline: none;
+  max-width: 336px;
+
   font-family: 'Arial';
   font-style: normal;
   font-weight: 400;
@@ -53,4 +61,10 @@ select {
   color: #000000;
   border: 1px solid #999999;
   box-sizing: border-box;
+}
+option {
+  font-weight: normal;
+
+  width: 336px;
+  background-size: 50%;
 }
