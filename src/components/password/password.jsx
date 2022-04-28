@@ -2,29 +2,28 @@ import { useState } from 'react';
 
 import style from './password.module.scss';
 
-const Password = () => {
+const Password = ({ setError }) => {
   const [pass, setPass] = useState('');
 
   const [repeatPass, setRepeatPass] = useState('');
 
-  const [passError, setPassError] = useState('Используйте не менее 5 символов');
+  const [passError, setPassError] = useState('');
 
   const [passDirty, setPassDirty] = useState(false);
 
-  const [repeatPassError, setRepeatPassError] = useState('Пароли не совпадают');
+  const [repeatPassError, setRepeatPassError] = useState('');
 
   const [repeatPassDirty, setRepeatPassDirty] = useState(false);
+
+  setError(passDirty || repeatPassDirty || !!passError || !!repeatPassError);
 
   const blurHandler = (e) => {
     switch (e.target.name) {
       case 'passwordOne':
         setPassDirty(true);
-
         break;
-
       case 'passwordTwo':
         setRepeatPassDirty(true);
-
         break;
     }
   };
@@ -51,10 +50,6 @@ const Password = () => {
     } else {
       setRepeatPassError('');
     }
-
-    console.log(pass);
-
-    console.log(repeatPass);
   };
 
   return (

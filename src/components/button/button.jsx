@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import style from './button.module.scss';
 
-const Button = () => {
+const Button = ({ mainError }) => {
   const [data, setData] = useState('');
 
   const check = () => {
@@ -56,14 +56,13 @@ const Button = () => {
       ':' +
       seconds;
 
-    console.log(day);
-
     setData(message);
+    console.log(mainError);
   };
 
   return (
     <div className={style.wrapper}>
-      <button className={style.btn} onClick={check}>
+      <button disabled={mainError} className={style.btn} onClick={check}>
         Изменить
       </button>
 
