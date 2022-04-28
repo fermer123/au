@@ -36,9 +36,9 @@ const Email = () => {
         <div className={style.password_field}>Электронная почта</div>
         <input
           name='email'
-          onBlur={(e) => blurHandler()}
+          onBlur={blurHandler}
           value={email}
-          onChange={(e) => emailHandler(e)}
+          onChange={emailHandler}
         />
         {emailError && emailDirty && (
           <div className={style.email_error}>неверный E-mail</div>
