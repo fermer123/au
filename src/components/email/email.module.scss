@@ -1,5 +1,6 @@
 .wrapper {
-  max-width: 594px;
+  // max-width: 594px;
+  max-width: 932px;
   margin-left: 100px;
   margin-bottom: 40px;
 }
@@ -10,7 +11,7 @@
   text-align: flex-start;
   margin-bottom: 16px;
 }
-.password_field {
+.email_field {
   font-family: 'Arial';
   font-style: normal;
   font-weight: 400;
@@ -20,17 +21,18 @@
   margin-right: 36px;
 }
 
-.password_wrapper {
+.email_wrapper {
   display: flex;
   flex-wrap: wrap;
 }
-.password_agree {
+.email_agree {
   font-family: 'Arial';
   font-style: normal;
   font-weight: 400;
   font-size: 21px;
   line-height: 19px;
   color: #000000;
+  margin-right: 36px;
 }
 .checkbox {
   align-self: center;
@@ -40,7 +42,7 @@
   border: 1px solid #7e7e7e;
   box-sizing: border-box;
 }
-.password_info {
+.email_info {
   max-width: 348px;
   font-family: 'Arial';
   font-style: normal;
@@ -63,6 +65,7 @@ select {
   color: #000000;
   border: 1px solid #999999;
   box-sizing: border-box;
+  margin-right: 18px;
 }
 .email_error {
   font-family: 'Arial';
@@ -72,4 +75,19 @@ select {
   line-height: 20px;
   color: #ff0000;
   margin-left: 224px;
+}
+
+.email_hint {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #999999;
+}
+@media screen and (max-width: 1019px) {
+  .email_error {
+    float: none;
+    margin-left: 0px;
+  }
 }

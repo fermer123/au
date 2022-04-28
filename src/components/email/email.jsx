@@ -33,26 +33,29 @@ const Email = () => {
   return (
     <div className={style.wrapper}>
       <div className={style.email_wrapper}>
-        <div className={style.password_field}>Электронная почта</div>
+        <div className={style.email_field}>Электронная почта</div>
         <input
           name='email'
           onBlur={blurHandler}
           value={email}
           onChange={emailHandler}
         />
+        <div className={style.email_hint}>
+          Можно изменить адрес, указанный при регистрации.
+        </div>
         {emailError && emailDirty && (
           <div className={style.email_error}>неверный E-mail</div>
         )}
       </div>
-      <div className={style.password_wrapper}>
-        <div className={style.password_agree}>Я согласен</div>
+      <div className={style.email_wrapper}>
+        <div className={style.email_agree}>Я согласен</div>
         <input
           className={style.checkbox}
           type='checkbox'
           value={checked}
           onChange={checkbox}
         />
-        <div className={style.password_info}>
+        <div className={style.email_info}>
           принимать актуальную информацию на емейл
         </div>
       </div>

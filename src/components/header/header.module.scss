@@ -4,7 +4,6 @@
   margin-bottom: 39px;
   display: flex;
   align-items: center;
-
   justify-content: space-between;
   flex-wrap: wrap;
   max-width: 718px;
@@ -44,7 +43,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 53px;
+  height: 46px;
   padding-left: 12px;
   width: 100%;
   margin-top: 4px;
@@ -60,7 +59,6 @@
     top: -5px;
     left: 8px;
     position: absolute;
-
     display: block;
     content: '';
     width: 11px;
@@ -70,7 +68,13 @@
   }
 }
 
-@media screen and (max-width: 620px) {
+input {
+  outline: none;
+  border: transparent;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 850px) {
   .header_change_field {
     float: none;
     width: 100%;
@@ -79,10 +83,8 @@
     font-size: 20px;
     margin-top: 20px;
   }
-}
-
-input {
-  outline: none;
-  border: transparent;
-  background-color: transparent;
+  .header_change_status {
+    float: none;
+    margin-right: 100px;
+  }
 }

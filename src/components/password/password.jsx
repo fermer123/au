@@ -60,8 +60,7 @@ const Password = () => {
   return (
     <div className={style.password}>
       <div className={style.password_wrapper}>
-        <div>Пароль</div>
-
+        <div className={style.password_pass}>Пароль</div>
         <input
           onBlur={blurHandler}
           name='passwordOne'
@@ -69,15 +68,16 @@ const Password = () => {
           value={pass}
           onChange={passwordHandler}
         />
-
+        <div className={style.password_wrapper_hint}>
+          Ваш новый пароль должен содержать не менее 5 символов.
+        </div>
         {passError && passDirty && (
           <div className={style.password_error}>{passError}</div>
         )}
       </div>
 
       <div className={style.password_wrapper}>
-        <div>Пароль еще раз</div>
-
+        <div className={style.password_pass_again}>Пароль еще раз</div>
         <input
           onBlur={blurHandler}
           name='passwordTwo'
@@ -85,7 +85,10 @@ const Password = () => {
           value={repeatPass}
           onChange={passwordHandlerRepeat}
         />
-
+        <div className={style.password_wrapper_hint}>
+          Повторите пароль, пожалуйста, это обезопасит вас с нами на случай
+          ошибки.
+        </div>
         {passError && passDirty && (
           <div className={style.password_error}>{passError}</div>
         )}

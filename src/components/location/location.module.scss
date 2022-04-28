@@ -61,3 +61,11 @@ select {
   border: 1px solid #999999;
   box-sizing: border-box;
 }
+@media screen and (max-width: 1019px) {
+  select {
+    float: none;
+    margin-left: 0px;
+    margin-right: 100px;
+    min-width: 260px;
+  }
+}

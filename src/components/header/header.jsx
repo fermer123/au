@@ -19,14 +19,16 @@ const Header = () => {
 
   return (
     <div className={style.header}>
-      <div className={style.header_person}>Здравствуйте, Человек №3596941</div>
+      <div className={style.header_person}>
+        Здравствуйте, <span>Человек №3596941</span>
+      </div>
       <button onClick={handlerBtn} className={style.header_change_status}>
         Сменить статус
       </button>
 
       {status ? (
         <div className={style.header_change_field}>
-          <input placeholder={change} onChange={handlerIn} />
+          <input onChange={handlerIn} />
         </div>
       ) : change ? (
         <div className={style.header_change_field}>{change}</div>
