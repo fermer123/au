@@ -2,21 +2,34 @@ import { useState } from 'react';
 
 import style from './password.module.scss';
 
-const Password = ({ setError }) => {
+const Password = (props) => {
+  const {
+    passError,
+    setPassError,
+    passDirty,
+    setPassDirty,
+    repeatPassError,
+    setRepeatPassError,
+    repeatPassDirty,
+    setRepeatPassDirty,
+    setMainError,
+  } = props;
   const [pass, setPass] = useState('');
 
   const [repeatPass, setRepeatPass] = useState('');
 
-  const [passError, setPassError] = useState('');
+  // const [passError, setPassError] = useState('');
 
-  const [passDirty, setPassDirty] = useState(false);
+  // const [passDirty, setPassDirty] = useState(false);
 
-  const [repeatPassError, setRepeatPassError] = useState('');
+  // const [repeatPassError, setRepeatPassError] = useState('');
 
-  const [repeatPassDirty, setRepeatPassDirty] = useState(false);
-
-  setError(passDirty || repeatPassDirty || !!passError || !!repeatPassError);
-
+  // const [repeatPassDirty, setRepeatPassDirty] = useState(false);
+  if ((passError && passDirty) || (repeatPassError && repeatPassDirty)) {
+    setMainError(true);
+  } else {
+    setMainError(false);
+  }
   const blurHandler = (e) => {
     switch (e.target.name) {
       case 'passwordOne':

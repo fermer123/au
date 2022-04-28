@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import style from './email.module.scss';
 
-const Email = ({ setError }) => {
+const Email = (props) => {
+  const { emailError, setEmailError, emailDirty, setEmailDirty } = props;
   const [checked, setChecked] = useState(true);
   const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [emailDirty, setEmailDirty] = useState(false);
-
-  setError((emailDirty && !!emailError) || checked);
+  //const [emailError, setEmailError] = useState('');
+  //const [emailDirty, setEmailDirty] = useState(false);
 
   const checkbox = () => {
     setChecked(!checked);
-    console.log(!!emailError);
-    console.log(emailDirty);
   };
 
   const blurHandler = (e) => {

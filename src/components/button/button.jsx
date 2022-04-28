@@ -57,7 +57,6 @@ const Button = ({ mainError }) => {
       seconds;
 
     setData(message);
-    console.log(mainError);
   };
 
   return (
