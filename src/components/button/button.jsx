@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import style from './button.module.scss';
 
 const Button = ({ mainError }) => {
@@ -57,7 +56,6 @@ const Button = ({ mainError }) => {
       seconds;
 
     setData(message);
-    console.log(message);
   };
 
   return (
