@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import style from './email.module.scss';
 
-const Email = (props) => {
-  const { emailError, setEmailError, emailDirty, setEmailDirty } = props;
+const Email = ({ setEmailErrorMain }) => {
   const [checked, setChecked] = useState(true);
   const [email, setEmail] = useState('');
-  //const [emailError, setEmailError] = useState('');
-  //const [emailDirty, setEmailDirty] = useState(false);
+  const [emailError, setEmailError] = useState('');
+  const [emailDirty, setEmailDirty] = useState(false);
+  const mainError = !emailError && email.length > 0 && !checked;
+
+  useEffect(() => {
+    setEmailErrorMain(mainError);
+  }, [emailError, !checked, email]);
 
   const checkbox = () => {
     setChecked(!checked);

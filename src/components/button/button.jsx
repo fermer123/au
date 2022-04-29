@@ -61,10 +61,9 @@ const Button = ({ mainError }) => {
 
   return (
     <div className={style.wrapper}>
-      <button disabled={mainError} className={style.btn} onClick={check}>
+      <button disabled={!mainError} className={style.btn} onClick={check}>
         Изменить
       </button>
-
       <div className={style.wrapper_date}>{data}</div>
     </div>
   );

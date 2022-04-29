@@ -1,35 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import style from './password.module.scss';
 
-const Password = (props) => {
-  const {
-    passError,
-    setPassError,
-    passDirty,
-    setPassDirty,
-    repeatPassError,
-    setRepeatPassError,
-    repeatPassDirty,
-    setRepeatPassDirty,
-    setMainError,
-  } = props;
+const Password = ({ setPassErrorMain }) => {
   const [pass, setPass] = useState('');
-
   const [repeatPass, setRepeatPass] = useState('');
+  const [passError, setPassError] = useState('');
+  const [passDirty, setPassDirty] = useState(false);
+  const [repeatPassError, setRepeatPassError] = useState('');
+  const [repeatPassDirty, setRepeatPassDirty] = useState(false);
+  const mainError =
+    !passError &&
+    !repeatPassError &&
+    pass.length >= 5 &&
+    repeatPassDirty &&
+    passDirty &&
+    repeatPass.length >= 5;
 
-  // const [passError, setPassError] = useState('');
+  useEffect(() => {
+    setPassErrorMain(mainError);
+  }, [pass, repeatPass]);
 
-  // const [passDirty, setPassDirty] = useState(false);
-
-  // const [repeatPassError, setRepeatPassError] = useState('');
-
-  // const [repeatPassDirty, setRepeatPassDirty] = useState(false);
-  if ((passError && passDirty) || (repeatPassError && repeatPassDirty)) {
-    setMainError(true);
-  } else {
-    setMainError(false);
-  }
   const blurHandler = (e) => {
     switch (e.target.name) {
       case 'passwordOne':
@@ -43,7 +34,6 @@ const Password = (props) => {
 
   const passwordHandler = (e) => {
     setPass(e.target.value);
-
     if (e.target.value.length < 5) {
       setPassError('Используйте не менее 5 символов');
     } else {
@@ -56,12 +46,11 @@ const Password = (props) => {
 
     if (e.target.value.length < 5) {
       setRepeatPassError('Используйте не менее 5 символов');
-    }
-
-    if (e.target.value !== pass) {
-      setRepeatPassError('Пароли не совпадают');
     } else {
       setRepeatPassError('');
+    }
+    if (e.target.value !== pass) {
+      setRepeatPassError('Пароли не совпадают');
     }
   };
 
@@ -83,7 +72,6 @@ const Password = (props) => {
           <div className={style.password_error}>{passError}</div>
         )}
       </div>
-
       <div className={style.password_wrapper}>
         <div className={style.password_pass_again}>Пароль еще раз</div>
         <input
@@ -93,10 +81,12 @@ const Password = (props) => {
           value={repeatPass}
           onChange={passwordHandlerRepeat}
         />
+
         <div className={style.password_wrapper_hint}>
           Повторите пароль, пожалуйста, это обезопасит вас с нами на случай
           ошибки.
         </div>
+
         {passError && passDirty && (
           <div className={style.password_error}>{passError}</div>
         )}

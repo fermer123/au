@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from './App.module.scss';
 import Button from './components/button/button';
 import Email from './components/email/email';
@@ -7,38 +7,23 @@ import Location from './components/location/location';
 import Password from './components/password/password';
 
 function App() {
+  const [mainEmailError, setEmailErrorMain] = useState(false);
+  const [mainPassError, setPassErrorMain] = useState(false);
   const [mainError, setMainError] = useState(false);
 
-  const [passError, setPassError] = useState('');
-  const [passDirty, setPassDirty] = useState(false);
-  const [repeatPassError, setRepeatPassError] = useState('');
-  const [repeatPassDirty, setRepeatPassDirty] = useState(false);
-
-  const [emailError, setEmailError] = useState('');
-  const [emailDirty, setEmailDirty] = useState(false);
+  useEffect(() => {
+    if (mainEmailError && mainPassError) {
+      setMainError(true);
+    }
+  }, [mainEmailError, mainPassError]);
 
   return (
     <div className={style.App}>
       <Header />
       <Location />
-      <Password
-        passError={passError}
-        setPassError={setPassError}
-        passDirty={passDirty}
-        setPassDirty={setPassDirty}
-        repeatPassError={repeatPassError}
-        setRepeatPassError={setRepeatPassError}
-        repeatPassDirty={repeatPassDirty}
-        setRepeatPassDirty={setRepeatPassDirty}
-        setMainError={setMainError}
-      />
-      <Email
-        emailError={emailError}
-        setEmailError={setEmailError}
-        emailDirty={emailDirty}
-        setEmailDirty={setEmailDirty}
-      />
-      <Button />
+      <Password setPassErrorMain={setPassErrorMain} />
+      <Email setEmailErrorMain={setEmailErrorMain} />
+      <Button mainError={mainError} />
     </div>
   );
 }
