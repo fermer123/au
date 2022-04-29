@@ -19,7 +19,7 @@ const Password = ({ setPassErrorMain }) => {
 
   useEffect(() => {
     setPassErrorMain(mainError);
-  }, [pass, repeatPass]);
+  }, [mainError]);
 
   const blurHandler = (e) => {
     switch (e.target.name) {

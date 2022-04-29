@@ -40,7 +40,7 @@ const Button = ({ mainError }) => {
       minute = now.getMinutes(),
       seconds = now.getSeconds(),
       message = 'последние изменения';
-
+    minute = minute < 10 ? '0' + minute : minute;
     message +=
       ' ' +
       day +
@@ -57,6 +57,7 @@ const Button = ({ mainError }) => {
       seconds;
 
     setData(message);
+    console.log(message);
   };
 
   return (
