@@ -9,8 +9,6 @@ const Password = ({
   setRepeatPass,
   setPassErrorMain,
 }) => {
-  // const [pass, setPass] = useState('');
-  // const [repeatPass, setRepeatPass] = useState('');
   const [passError, setPassError] = useState('');
   const [passDirty, setPassDirty] = useState(false);
   const [repeatPassError, setRepeatPassError] = useState('');

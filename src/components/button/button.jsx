@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import style from './button.module.scss';
-
-const Button = ({ mainError }) => {
+const json = require('../../sq.json');
+const Button = ({ value, city, pass, email, repeatPass, mainError }) => {
   const [data, setData] = useState('');
 
   const check = () => {
@@ -54,7 +54,12 @@ const Button = ({ mainError }) => {
       minute +
       ':' +
       seconds;
-
+    const end = json.push(
+      JSON.stringify(
+        value + ',' + city + ',' + pass + ',' + email + ',' + repeatPass,
+      ),
+    );
+    console.log(json);
     setData(message);
   };
 
