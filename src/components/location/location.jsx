@@ -16,10 +16,19 @@ const max = Math.max.apply(
 const maxIndex = sortJson.findIndex((e) => e.population == max);
 const newArr = sortJson.splice(maxIndex, 1).concat(sortJson);
 
-const Location = () => {
+const Location = ({ setLocationErrorMain, value, setValue, city, setCity }) => {
   const [unversity, setUnversity] = useState([]);
-  const [value, setValue] = useState('');
-  const [city, setCity] = useState('');
+  //const [value, setValue] = useState('');
+  //const [city, setCity] = useState('');
+
+  useEffect(() => {
+    if (value == '' || city == '') {
+      setLocationErrorMain(false);
+    } else {
+      setLocationErrorMain(true);
+    }
+    console.log(value, city);
+  }, [value, city]);
 
   useEffect(() => {
     const fetchUniversity = async () => {
