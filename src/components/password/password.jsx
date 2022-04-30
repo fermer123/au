@@ -2,9 +2,15 @@ import { useEffect, useState } from 'react';
 
 import style from './password.module.scss';
 
-const Password = ({ setPassErrorMain }) => {
-  const [pass, setPass] = useState('');
-  const [repeatPass, setRepeatPass] = useState('');
+const Password = ({
+  pass,
+  setPass,
+  repeatPass,
+  setRepeatPass,
+  setPassErrorMain,
+}) => {
+  // const [pass, setPass] = useState('');
+  // const [repeatPass, setRepeatPass] = useState('');
   const [passError, setPassError] = useState('');
   const [passDirty, setPassDirty] = useState(false);
   const [repeatPassError, setRepeatPassError] = useState('');

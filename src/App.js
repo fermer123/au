@@ -15,6 +15,12 @@ function App() {
   const [value, setValue] = useState('');
   const [city, setCity] = useState('');
 
+  const [pass, setPass] = useState('');
+  const [repeatPass, setRepeatPass] = useState('');
+
+  const [checked, setChecked] = useState(true);
+  const [email, setEmail] = useState('');
+
   useEffect(() => {
     if (mainEmailError && mainPassError && mainLocationError) {
       setMainError(true);
@@ -33,9 +39,28 @@ function App() {
         city={city}
         setCity={setCity}
       />
-      <Password setPassErrorMain={setPassErrorMain} />
-      <Email setEmailErrorMain={setEmailErrorMain} />
-      <Button mainError={mainError} />
+      <Password
+        pass={pass}
+        setPass={setPass}
+        repeatPass={repeatPass}
+        setRepeatPass={setRepeatPass}
+        setPassErrorMain={setPassErrorMain}
+      />
+      <Email
+        checked={checked}
+        setChecked={setChecked}
+        email={email}
+        setEmail={setEmail}
+        setEmailErrorMain={setEmailErrorMain}
+      />
+      <Button
+        value={value}
+        city={city}
+        pass={pass}
+        email={email}
+        repeatPass={repeatPass}
+        mainError={mainError}
+      />
     </div>
   );
 }
